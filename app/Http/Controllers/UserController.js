@@ -3,7 +3,7 @@
 class UserController {
   
     * index (request, response) {
-        request.send("you are the one")
+        response.send(request.request.user);
     }
     * create (request, response) {}
     * store (request, response) {}

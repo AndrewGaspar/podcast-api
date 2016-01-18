@@ -14,8 +14,8 @@ const Middleware = use('Middleware')
 const globalMiddleware = [
   'App/Http/Middleware/Cors',
   'App/Http/Middleware/BodyParser',
-  'App/Http/Middleware/Flash',
-  'App/Http/Middleware/Auth'
+  'App/Http/Middleware/Query',
+  'App/Http/Middleware/Flash'
 ]
 
 /*
@@ -28,7 +28,7 @@ const globalMiddleware = [
 |
 */
 const namedMiddleware = {
-
+    'auth': 'App/Http/Middleware/Auth'
 }
 
 /*

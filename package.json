@@ -16,6 +16,9 @@
     "adonis-lucid": "^2.0.1",
     "formidable": "^1.0.17",
     "ouch": "^0.2.0-beta",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "qs": "^6.0.2",
     "raw-body": "^2.1.5"
   },
   "autoload": {
