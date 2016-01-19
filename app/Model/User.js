@@ -3,7 +3,15 @@
 const Lucid = use("Lucid")
 
 class User extends Lucid {
-
+    // only valid for MSA users
+    msa_token() {
+        return this.hasOne('App/Model/MsaToken')
+    }
+    
+    // only valid for test users
+    test_credential() {
+        return this.hasOne('App/Model/TestCredential')
+    }
 }
 
 module.exports = User

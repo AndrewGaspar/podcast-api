@@ -1,7 +1,7 @@
 {
-  "name": "adonis-app",
-  "version": "2.0.0",
-  "description": "Adonisjs application template",
+  "name": "podcast-server",
+  "version": "0.1.0",
+  "description": "Podcast server api",
   "main": "server.js",
   "scripts": {
     "start": "node --harmony_proxies server.js"
@@ -14,12 +14,16 @@
     "adonis-fold": "^2.0.0",
     "adonis-framework": "^2.0.4",
     "adonis-lucid": "^2.0.1",
+    "co": "^4.6.0",
+    "connect-to-adonis": "^1.0.0",
     "formidable": "^1.0.17",
     "ouch": "^0.2.0-beta",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0",
+    "passport-http": "^0.3.0",
+    "passport-oauth2": "^1.1.2",
     "qs": "^6.0.2",
-    "raw-body": "^2.1.5"
+    "raw-body": "^2.1.5",
+    "sqlite3": "^3.1.1"
   },
   "autoload": {
     "App": "./app"

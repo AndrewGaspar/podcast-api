@@ -15,6 +15,7 @@ const Route = use('Route')
 Route.group('auth', function() {
     Route.resource('/users', 'UserController')
     Route.resource('/subscriptions', 'SubscriptionController')
-}).middlewares(['auth'])
+}).middlewares(['auth_reqeuest'])
 
 Route.resource('/podcasts', 'PodcastController')
+Route.get('/msa_redirect', 'MsaRedirectController.index')
