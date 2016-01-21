@@ -49,12 +49,20 @@ class NewSchema extends Schema {
             table.timestamps()
             table.timestamp('deleted_at')
         })
+        
+        this.create('podcasts', table => {
+            table.increments()
+            table.string('href')
+            table.timestamps()
+            table.timestamp('deleted_at')
+        })
     }
 
     down () {
         this.drop('users')
         this.drop('msa_tokens')
         this.drop('test_credentials')
+        this.drop('podcasts')
     }
 }
 
