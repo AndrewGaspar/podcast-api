@@ -3,11 +3,20 @@
 const Podcast = use('App/Model/Podcast')
 const co = use('co')
 
-function createPodcast(podcast) {
+const isEmpty = obj => Object.keys(obj).length == 0
+
+function createOrGetExistingPodcast(podcast) {
     return co(function*() {
+        const existing = (yield Podcast.where({ href: podcast.href }).first().fetch()).toJSON();
+        
+        if(!isEmpty(existing)) {
+            return existing
+        }
+        
         const new_podcast = new Podcast();
         new_podcast.href = podcast.href;
-        return (yield new_podcast.create())[0];
+        yield new_podcast.create();
+        return new_podcast.attributes
     });
 }
 
@@ -21,11 +30,9 @@ class PodcastController {
     * store (request, response) {
         const podcastRequest = request.request._body
         
-        const new_podcast_id = yield createPodcast(podcastRequest)
+        const new_podcast = yield createOrGetExistingPodcast(podcastRequest)
         
-        const new_podcast = yield Podcast.find(new_podcast_id);
-        
-        response.send(new_podcast.attributes)
+        response.send(new_podcast)
     }
     * show (request, response) {}
     * update (request, response) {}
