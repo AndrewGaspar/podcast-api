@@ -87,7 +87,8 @@ const commands = {
   'make:controller': 'Adonis/Commands/Generate:Controller',
   'make:model': 'Adonis/Commands/Generate:Model',
   'make:command': 'Adonis/Commands/Generate:Command',
-  'make:middleware': 'Adonis/Commands/Generate:Middleware'
+  'make:middleware': 'Adonis/Commands/Generate:Middleware',
+  'database:seed': 'App/Commands/DatabaseSeed'
 }
 
 module.exports = {providers, aliases, commands, aceProviders}

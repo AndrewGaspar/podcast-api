@@ -12,6 +12,10 @@ class User extends Lucid {
     test_credential() {
         return this.hasOne('App/Model/TestCredential')
     }
+    
+    subscriptions() {
+        return this.hasMany('App/Model/Subscription')
+    }
 }
 
 module.exports = User

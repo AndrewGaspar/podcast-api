@@ -53,6 +53,26 @@ class NewSchema extends Schema {
         this.create('podcasts', table => {
             table.increments()
             table.string('href')
+            
+            // Lucid timestamps
+            table.timestamps()
+            table.timestamp('deleted_at')
+        })
+        
+        this.create('subscriptions', table => {
+            table.increments()
+            
+            table.integer('podcast_id')
+                .references('id')
+                .inTable('podcasts')
+                .onDelete('CASCADE');
+                
+            table.integer('user_id')
+                .references('id')
+                .inTable('users')
+                .onDelete('CASCADE');
+            
+            // Lucid timestamps
             table.timestamps()
             table.timestamp('deleted_at')
         })
@@ -63,6 +83,7 @@ class NewSchema extends Schema {
         this.drop('msa_tokens')
         this.drop('test_credentials')
         this.drop('podcasts')
+        this.drop('subscriptions')
     }
 }
 
