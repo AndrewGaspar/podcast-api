@@ -2,11 +2,13 @@
 
 
 const PodcastManager = use('App/Data/PodcastManager')
+const Podcast = use('App/Model/Podcast')
 
 class PodcastController {
   
     * index (request, response) {
-        response.send("hi")
+        
+        response.send((yield Podcast.all()).toJSON())
     }
     * create (request, response) {
     }

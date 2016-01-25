@@ -3,10 +3,19 @@
 const Subscription = use('App/Model/Subscription')
 const PodcastManager = use('App/Data/PodcastManager')
 const Podcast = use('App/Model/Podcast')
+const User = use('App/Model/User')
 
 class SubscriptionController {
   
-    * index (request, response) {}
+    * index (request, response) {
+        const user = yield User.find(request.request.user.id);
+        
+        const subscriptions = yield user.subscriptions().with('podcast').fetch()
+        
+        const message = subscriptions.toJSON();
+        
+        response.send(message)
+    }
     * create (request, response) {}
     * store (request, response) {
         const user = request.request.user;
